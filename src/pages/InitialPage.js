@@ -1,5 +1,4 @@
 import React from "react";
-import "./margen.css";
 
 const InitialPage = () => {
   return (
