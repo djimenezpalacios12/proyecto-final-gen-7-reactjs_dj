@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import ResponsiveDrawer from "../components/Drawer";
+import ResponsiveDrawer from "../components/menu/Drawer";
+import NotFound from "../pages/notfound/NotFound";
 import InitialPage from "../pages/InitialPage";
-import SecondPage from "../pages/SecondPage";
 import "../App.css";
 
 const App = () => {
@@ -12,7 +12,9 @@ const App = () => {
         <ResponsiveDrawer />
         <Switch>
           <Route exact path="/" component={InitialPage} />
-          <Route exact path="/second" component={SecondPage} />
+          {/* <Route exact path="/" component={} /> */}
+
+          <Route component={NotFound} />
         </Switch>
       </BrowserRouter>
     </div>
