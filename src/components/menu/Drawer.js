@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import AppBar from "@material-ui/core/AppBar";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -16,6 +17,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import listMenu from "./menu";
+import MovieIcon from "@material-ui/icons/Movie";
 import "./styles.css";
 
 const drawerWidth = 240;
@@ -75,19 +77,25 @@ function ResponsiveDrawer(props) {
       <Divider />
       <List>
         {listMenu.map((menu) => (
-          <ListItem button key={menu.id}>
-            <ListItemIcon>{menu.icon}</ListItemIcon>
-            <ListItemText primary={menu.menu} />
-          </ListItem>
+          <div key={menu.id}>
+            <Link to={menu.ruta} className="text-secondary">
+              <ListItem button key={menu.id}>
+                <ListItemIcon>{menu.icon}</ListItemIcon>
+                <ListItemText primary={menu.menu} />
+              </ListItem>
+            </Link>
+          </div>
         ))}
       </List>
       <Divider />
-      <ListItem button key={1}>
-        <ListItemIcon>
-          <AssessmentIcon />
-        </ListItemIcon>
-        <ListItemText primary={"Estadisticas"} />
-      </ListItem>
+      <Link to="/estadisticas" className="text-secondary">
+        <ListItem button key={1}>
+          <ListItemIcon>
+            <AssessmentIcon />
+          </ListItemIcon>
+          <ListItemText primary={"Estadisticas"} />
+        </ListItem>
+      </Link>
     </div>
   );
 
@@ -109,6 +117,7 @@ function ResponsiveDrawer(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
+            <MovieIcon className="pb-1" />
             Portal Películas
           </Typography>
         </Toolbar>
