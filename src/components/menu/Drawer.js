@@ -63,9 +63,6 @@ function ResponsiveDrawer(props) {
   const theme = useTheme();
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
-  // ! Borrar
-  console.log(listMenu);
-
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };

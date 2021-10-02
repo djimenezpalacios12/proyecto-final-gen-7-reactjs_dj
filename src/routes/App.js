@@ -32,5 +32,3 @@ const App = () => {
 };
 
 export default App;
-
-// TODO: Borrar al final los comentario ->  // ! Borrar
