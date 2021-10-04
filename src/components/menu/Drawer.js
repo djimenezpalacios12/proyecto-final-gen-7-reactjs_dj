@@ -37,7 +37,6 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up("sm")]: {
       width: `calc(100% - ${drawerWidth}px)`,
       marginLeft: drawerWidth,
-      // background: "#7800FF",
     },
   },
   menuButton: {
@@ -75,7 +74,7 @@ function ResponsiveDrawer(props) {
       <List>
         {listMenu.map((menu) => (
           <div key={menu.id}>
-            <Link to={menu.ruta} className="text-secondary">
+            <Link to={menu.ruta} className="text-secondary textLink">
               <ListItem button key={menu.id}>
                 <ListItemIcon>{menu.icon}</ListItemIcon>
                 <ListItemText primary={menu.menu} />
@@ -113,10 +112,12 @@ function ResponsiveDrawer(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap>
-            <MovieIcon className="pb-1" />
-            Portal Películas
-          </Typography>
+          <Link to="/" className="textLink text-white">
+            <Typography variant="h6" noWrap>
+              <MovieIcon className="pb-1" />
+              Portal Películas
+            </Typography>
+          </Link>
         </Toolbar>
       </AppBar>
       <nav className={classes.drawer} aria-label="mailbox folders">
