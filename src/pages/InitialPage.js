@@ -1,73 +1,78 @@
-import React, { Fragment } from "react";
-import { ImageList, ImageListItem } from "@material-ui/core";
-
-const itemData = [
-  {
-    img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
-    title: "Breakfast",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
-    title: "Burger",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1522770179533-24471fcdba45",
-    title: "Camera",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c",
-    title: "Coffee",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1533827432537-70133748f5c8",
-    title: "Hats",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62",
-    title: "Honey",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1516802273409-68526ee1bdd6",
-    title: "Basketball",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1518756131217-31eb79b20e8f",
-    title: "Fern",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1597645587822-e99fa5d45d25",
-    title: "Mushrooms",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1567306301408-9b74779a11af",
-    title: "Tomato basil",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1471357674240-e1a485acb3e1",
-    title: "Sea star",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1589118949245-7d38baf380d6",
-    title: "Bike",
-  },
-];
+import React, { Fragment, useEffect, useState } from "react";
+import { ImageList, ImageListItem, LinearProgress } from "@material-ui/core";
+import { categoryList } from "../client/initalMovies";
+import PosterContent from "../components/poster/PosterContent";
 
 const InitialPage = () => {
+  const [moviePhoto, setMoviePhoto] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+    categoryList()
+      .then((data) => {
+        setMoviePhoto(data.results);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        setLoading(false);
+      });
+  }, []);
+
   return (
     <Fragment>
       <div className="margenes">
-        <div className="row d-flex justify-content-center mt-4">
-          <div className="col-12 col-lg-8">
+        <div className="">{loading ? <LinearProgress /> : null}</div>
+
+        <div className="row d-flex justify-content-center mt-4 m-2">
+          <PosterContent Boostrapt="col-12 col-lg-10 text-center text-info">
+            <h3>¡Bienvenido!</h3>
+          </PosterContent>
+
+          <PosterContent Boostrapt="col-12 col-lg-10 text-secondary">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipiscing elit malesuada
+              mollis, varius cras eget bibendum nostra erat mi imperdiet neque
+              aliquet, euismod purus ut penatibus libero eu sem nascetur.
+              Tristique praesent lobortis luctus ligula molestie ornare inceptos
+              morbi eleifend, mi ut placerat justo sem suscipit metus nisl,
+              viverra primis potenti tempus tellus aptent phasellus semper.
+              Praesent eros nunc sodales suspendisse facilisi in vulputate
+              tristique diam fermentum semper placerat, odio accumsan viverra
+              euismod tincidunt enim volutpat duis faucibus nullam suscipit. Sed
+              blandit etiam leo feugiat augue diam suspendisse eros taciti,
+              morbi luctus nullam potenti nam semper ligula nibh. Senectus proin
+              integer viverra tincidunt dictum feugiat torquent rhoncus,
+              ullamcorper sollicitudin sed interdum ultricies commodo risus,
+              massa pharetra dictumst fermentum nisi eu quam. Cras fringilla
+              pulvinar sociis et mus rutrum suscipit, cum lobortis mattis
+              egestas pretium ac curabitur, odio per venenatis netus phasellus
+              etiam. Nulla hendrerit pretium feugiat platea suspendisse blandit
+              sociosqu et mollis, pellentesque viverra ullamcorper tortor velit
+              sed taciti aliquet felis in, suscipit ligula dapibus dui ut
+              praesent magna non. Purus curabitur pellentesque fermentum eget
+              vulputate id tristique tortor quis potenti, ullamcorper tellus
+              morbi orci hac vivamus gravida bibendum scelerisque pharetra,
+              tempor pretium ante ridiculus cubilia blandit senectus fringilla
+              volutpat. Massa etiam quam leo tempus laoreet euismod, posuere
+              luctus velit class ac metus, ultricies viverra vel elementum
+              dignissim. Suspendisse pulvinar semper parturient luctus praesent
+              magna molestie mus curabitur viverra quisque, tempus porta pretium
+              justo tristique sollicitudin integer interdum nam.
+            </p>
+          </PosterContent>
+
+          <PosterContent Boostrapt="col-12 col-lg-10">
             <ImageList
               cols={3}
               rowHeight={164}
               sx={{ width: 500, height: 450 }}
             >
-              {itemData.map((item) => (
-                <ImageListItem key={item.img}>
+              {moviePhoto.map((item) => (
+                <ImageListItem key={item.original_title}>
                   <img
-                    src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
-                    srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                    src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}
                     alt={item.title}
                     loading="lazy"
                     width="10%"
@@ -75,7 +80,7 @@ const InitialPage = () => {
                 </ImageListItem>
               ))}
             </ImageList>
-          </div>
+          </PosterContent>
         </div>
       </div>
     </Fragment>
