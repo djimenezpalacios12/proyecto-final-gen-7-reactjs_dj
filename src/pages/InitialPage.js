@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { ImageList, ImageListItem, LinearProgress } from "@material-ui/core";
-import { categoryList } from "../client/initalMovies";
+import { categoryList } from "../client/movies";
 import PosterContent from "../components/poster/PosterContent";
 
 const InitialPage = () => {

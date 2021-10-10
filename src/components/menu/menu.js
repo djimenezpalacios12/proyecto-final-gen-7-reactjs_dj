@@ -1,5 +1,4 @@
 import TheatersIcon from "@material-ui/icons/Theaters";
-import ChildCareIcon from "@material-ui/icons/ChildCare";
 import PeopleAltIcon from "@material-ui/icons/PeopleAlt";
 import VideocamIcon from "@material-ui/icons/Videocam";
 
@@ -22,12 +21,6 @@ const listMenu = [
     menu: "drama",
     icon: <PeopleAltIcon />,
     ruta: "/drama",
-  },
-  {
-    id: 4,
-    menu: "Infantiles",
-    icon: <ChildCareIcon />,
-    ruta: "/infantiles",
   },
 ];
 
