@@ -6,7 +6,7 @@ export default function InputField({ ...props }) {
     <Box
       component="div"
       sx={{
-        "& > :not(style)": { m: 1, width: "10ch" },
+        "& > :not(style)": { m: 1, width: "30ch" },
       }}
       noValidate
       autoComplete="off"

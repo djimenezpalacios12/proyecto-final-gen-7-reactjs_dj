@@ -15,7 +15,6 @@ export const theatresMovies = (value) => {
 };
 
 // Peliculas
-// /search/movie?api_key=4029d79d74e42928c21cfa6bcdf1eda4&query=algo&page=1
 export const getMovieInfo = (value) => {
   return client.get(`/search/movie?${api_key}&query=${value}&page=1`);
 };

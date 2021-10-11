@@ -6,6 +6,12 @@ const reducer = (state, action) => {
         loading: action.payload,
       };
 
+    case "SET_MOVIES_SEARCH":
+      return {
+        ...state,
+        movies: action.payload,
+      };
+
     default:
       return state;
   }

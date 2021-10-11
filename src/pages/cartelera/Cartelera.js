@@ -47,7 +47,7 @@ const Cartelera = () => {
                   <h3>{`Cartelera ${values.año}`}</h3>
                 </PosterContent>
 
-                <PosterContent Boostrapt="col-12 col-lg-10 text-center d-flex align-items-center">
+                <PosterContent Boostrapt="col-12 col-lg-10 text-center d-lg-flex align-items-center">
                   <span className="text-secondary">
                     Consultar estrenos por año:{" "}
                   </span>
@@ -61,7 +61,7 @@ const Cartelera = () => {
                     size="small"
                     value={values.año}
                     onChange={handleChange}
-                    className="mx-2"
+                    className="m-2"
                     placeholder="2021"
                   />
 
@@ -70,7 +70,7 @@ const Cartelera = () => {
                   </Button>
                 </PosterContent>
 
-                <div className="">
+                <div>
                   <MediaCard movies={movies} />
                 </div>
               </div>
