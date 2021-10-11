@@ -1,38 +1,35 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Formik, Form } from "formik";
-import { LinearProgress, Button } from "@material-ui/core";
+import { Button } from "@material-ui/core";
 import { Search } from "@material-ui/icons";
 import PosterContent from "../../components/poster/PosterContent";
 import { theatresMovies } from "../../client/movies";
 import MediaCard from "../../components/card/Card";
 import InputField from "../../components/inputField/inputField";
+// React
+import { setLoading } from "../../actions/index";
+import { useDispatch } from "react-redux";
 
 const Cartelera = () => {
   const [movies, setMovies] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const dispatch = useDispatch();
 
   const handleSubmit = (values) => {
-    console.log(values.año);
     if (values.año) {
-      setLoading(true);
+      dispatch(setLoading(true));
       theatresMovies(values.año)
         .then((data) => {
           setMovies(data.results);
-          setLoading(false);
+          dispatch(setLoading(false));
         })
         .catch((err) => {
           console.log(err);
-          setLoading(false);
+          dispatch(setLoading(false));
         });
     } else {
       console.log("Valor Vacio");
     }
   };
-
-  console.log(movies);
-
-  // TODO: Mejorar validacion de input
-  // TODO: Corregir scroll de card
 
   return (
     <Formik
@@ -42,20 +39,18 @@ const Cartelera = () => {
       onSubmit={handleSubmit}
     >
       {({ values, handleChange }) => {
-        // console.log(values.año.getFullYear());
-
         return (
           <Form id="">
             <div className="margenes">
-              <div className="">{loading ? <LinearProgress /> : null}</div>
-
               <div className="row d-flex justify-content-center mt-4 m-2">
                 <PosterContent Boostrapt="col-12 col-lg-10 text-center text-info">
                   <h3>{`Cartelera ${values.año}`}</h3>
                 </PosterContent>
 
                 <PosterContent Boostrapt="col-12 col-lg-10 text-center d-flex align-items-center">
-                  <span>Consultar estrenos por año: </span>
+                  <span className="text-secondary">
+                    Consultar estrenos por año:{" "}
+                  </span>
                   <InputField
                     id="año"
                     name="año"
@@ -67,6 +62,7 @@ const Cartelera = () => {
                     value={values.año}
                     onChange={handleChange}
                     className="mx-2"
+                    placeholder="2021"
                   />
 
                   <Button type="submit" variant="contained" color="primary">

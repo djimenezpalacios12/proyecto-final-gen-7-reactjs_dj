@@ -8,7 +8,7 @@ import reducer from "./reducers/index";
 import App from "./routes/App";
 
 const initialState = {
-  intialMovies: [],
+  loading: false,
 };
 
 // Manejador de store

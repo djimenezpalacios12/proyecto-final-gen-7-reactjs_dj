@@ -1,30 +1,31 @@
 import React, { Fragment, useEffect, useState } from "react";
-import { ImageList, ImageListItem, LinearProgress } from "@material-ui/core";
+import { ImageList, ImageListItem } from "@material-ui/core";
 import { categoryList } from "../client/movies";
 import PosterContent from "../components/poster/PosterContent";
+// react
+import { setLoading } from "../actions/index";
+import { useDispatch } from "react-redux";
 
 const InitialPage = () => {
   const [moviePhoto, setMoviePhoto] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    setLoading(true);
+    dispatch(setLoading(true));
     categoryList()
       .then((data) => {
         setMoviePhoto(data.results);
-        setLoading(false);
+        dispatch(setLoading(false));
       })
       .catch((err) => {
         console.log(err);
-        setLoading(false);
+        dispatch(setLoading(false));
       });
-  }, []);
+  }, [dispatch]);
 
   return (
     <Fragment>
       <div className="margenes">
-        <div className="">{loading ? <LinearProgress /> : null}</div>
-
         <div className="row d-flex justify-content-center mt-4 m-2">
           <PosterContent Boostrapt="col-12 col-lg-10 text-center text-info">
             <h3>¡Bienvenido!</h3>

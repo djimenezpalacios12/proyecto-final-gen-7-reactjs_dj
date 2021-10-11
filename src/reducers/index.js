@@ -1,9 +1,9 @@
 const reducer = (state, action) => {
   switch (action.type) {
-    case "SET_INITIAL_MOVIES":
+    case "SET_LOADING":
       return {
         ...state,
-        IntialMovies: action.payload,
+        loading: action.payload,
       };
 
     default:

@@ -15,10 +15,14 @@ import MenuIcon from "@material-ui/icons/Menu";
 import AssessmentIcon from "@material-ui/icons/Assessment";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
+import { LinearProgress } from "@material-ui/core";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import listMenu from "./menu";
 import MovieIcon from "@material-ui/icons/Movie";
 import "./styles.css";
+// React
+import { getLoading } from "../../actions/index";
+import { useSelector } from "react-redux";
 
 const drawerWidth = 240;
 
@@ -61,6 +65,7 @@ function ResponsiveDrawer(props) {
   const classes = useStyles();
   const theme = useTheme();
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const loadingState = useSelector(getLoading);
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -103,6 +108,13 @@ function ResponsiveDrawer(props) {
       <CssBaseline />
       <AppBar position="fixed" className={classes.appBar}>
         <Toolbar className="back-color">
+          {/* Estado de carga */}
+          {loadingState ? (
+            <div className="fixed-top">
+              <LinearProgress />
+            </div>
+          ) : null}
+
           <IconButton
             color="inherit"
             aria-label="open drawer"

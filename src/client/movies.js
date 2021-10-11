@@ -13,3 +13,9 @@ export const theatresMovies = (value) => {
     `/discover/movie?primary_release_date.gte=${value}-01-01&primary_release_date.lte=${value}-12-25&${api_key}`
   );
 };
+
+// Peliculas
+// /search/movie?api_key=4029d79d74e42928c21cfa6bcdf1eda4&query=algo&page=1
+export const getMovieInfo = (value) => {
+  return client.get(`/search/movie?${api_key}&query=${value}&page=1`);
+};

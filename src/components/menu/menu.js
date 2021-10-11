@@ -1,6 +1,5 @@
 import TheatersIcon from "@material-ui/icons/Theaters";
-import PeopleAltIcon from "@material-ui/icons/PeopleAlt";
-import VideocamIcon from "@material-ui/icons/Videocam";
+import Search from "@material-ui/icons/Search";
 
 // Menú
 const listMenu = [
@@ -12,15 +11,9 @@ const listMenu = [
   },
   {
     id: 2,
-    menu: "Populares",
-    icon: <VideocamIcon />,
-    ruta: "/populares",
-  },
-  {
-    id: 3,
-    menu: "drama",
-    icon: <PeopleAltIcon />,
-    ruta: "/drama",
+    menu: "Buscador",
+    icon: <Search />,
+    ruta: "/buscador",
   },
 ];
 

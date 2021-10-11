@@ -1,4 +1,7 @@
-export const setFavorite = (payload) => ({
-  type: "SET_INITIAL_MOVIES",
+export const setLoading = (payload) => ({
+  type: "SET_LOADING",
   payload,
 });
+
+// selectors
+export const getLoading = (state) => state.loading;
