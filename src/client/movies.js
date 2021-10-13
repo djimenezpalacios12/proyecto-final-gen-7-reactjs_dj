@@ -14,7 +14,12 @@ export const theatresMovies = (value) => {
   );
 };
 
-// Peliculas
+// Buscador Peliculas
 export const getMovieInfo = (value) => {
   return client.get(`/search/movie?${api_key}&query=${value}&page=1`);
+};
+
+// Top rated
+export const getTopRated = () => {
+  return client.get(`/movie/top_rated?${api_key}`);
 };
