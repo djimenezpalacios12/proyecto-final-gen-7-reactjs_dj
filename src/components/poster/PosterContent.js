@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import propType from "prop-types";
 
 const PosterContent = ({ Boostrapt, children }) => {
   return (
@@ -13,3 +14,9 @@ const PosterContent = ({ Boostrapt, children }) => {
 };
 
 export default PosterContent;
+
+// PropsType
+PosterContent.propType = {
+  Boostrapt: propType.string,
+  children: propType.node,
+};

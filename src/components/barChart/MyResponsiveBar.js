@@ -1,4 +1,5 @@
 import { ResponsiveBar } from "@nivo/bar";
+import propType from "prop-types";
 
 const MyResponsiveBar = ({ data }) => (
   <ResponsiveBar
@@ -28,5 +29,10 @@ const MyResponsiveBar = ({ data }) => (
     role="application"
   />
 );
+
+// PropsType
+MyResponsiveBar.propType = {
+  data: propType.object,
+};
 
 export default MyResponsiveBar;

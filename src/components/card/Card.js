@@ -1,12 +1,6 @@
 import React from "react";
-import {
-  Card,
-  //CardActions,
-  CardContent,
-  CardMedia,
-  //Button,
-  Typography,
-} from "@material-ui/core";
+import { Card, CardContent, CardMedia, Typography } from "@material-ui/core";
+import propType from "prop-types";
 
 import "./style.css";
 
@@ -38,10 +32,6 @@ export default function MediaCard({ movies }) {
                     {movie.overview}
                   </Typography>
                 </CardContent>
-                {/* <CardActions>
-                <Button size="small">Share</Button>
-                <Button size="small">Learn More</Button>
-              </CardActions> */}
               </Card>
             </div>
           );
@@ -49,3 +39,8 @@ export default function MediaCard({ movies }) {
     </div>
   );
 }
+
+// PropsType
+MediaCard.propType = {
+  movies: propType.object,
+};
