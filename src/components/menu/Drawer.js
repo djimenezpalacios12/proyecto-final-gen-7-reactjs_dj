@@ -20,7 +20,6 @@ import { makeStyles, useTheme } from "@material-ui/core/styles";
 import listMenu from "./menu";
 import MovieIcon from "@material-ui/icons/Movie";
 import "./styles.css";
-// React
 import { getLoading } from "../../actions/index";
 import { useSelector } from "react-redux";
 

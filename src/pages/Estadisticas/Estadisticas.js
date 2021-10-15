@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from "react";
+import { Fragment, useState, useEffect } from "react";
 import { getTopRated } from "../../client/movies";
 import { setLoading } from "../../actions/index";
 import PosterContent from "../../components/poster/PosterContent";

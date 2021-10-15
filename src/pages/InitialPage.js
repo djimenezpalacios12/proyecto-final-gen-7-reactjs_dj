@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { ImageList, ImageListItem } from "@material-ui/core";
 import { categoryList } from "../client/movies";
 import PosterContent from "../components/poster/PosterContent";

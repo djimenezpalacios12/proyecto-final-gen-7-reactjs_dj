@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import { Fragment } from "react";
 import propType from "prop-types";
 
 const PosterContent = ({ Boostrapt, children }) => {

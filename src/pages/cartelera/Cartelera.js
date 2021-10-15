@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Formik, Form } from "formik";
 import { Button } from "@material-ui/core";
 import { Search } from "@material-ui/icons";
@@ -6,7 +6,6 @@ import PosterContent from "../../components/poster/PosterContent";
 import { theatresMovies } from "../../client/movies";
 import MediaCard from "../../components/card/Card";
 import InputField from "../../components/inputField/inputField";
-// React
 import { setLoading } from "../../actions/index";
 import { useDispatch } from "react-redux";
 
