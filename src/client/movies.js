@@ -1,6 +1,6 @@
 import client from "./client";
 
-const api_key = "api_key=4029d79d74e42928c21cfa6bcdf1eda4";
+const api_key = "api_key=";
 
 // Peliculas de Página inicial
 export const categoryList = () => {
